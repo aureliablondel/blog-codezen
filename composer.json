@@ -1,0 +1,17 @@
+{
+    "name": "kercode/code-zen",
+    "authors": [
+        {
+            "name": "Aurelia BLONDEL",
+            "email": "aureliablondel56@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Project\\" : "./app"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.3"
+    }
+}
