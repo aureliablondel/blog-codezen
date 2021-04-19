@@ -5,7 +5,10 @@ session_start();
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-
+if($_SERVER['HTTP_HOST'] !=  "blog-codezen.herokuapp.com"){
+    $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+    }
 
 try{
     $backController = new \Project\Controllers\Back\BackController();
