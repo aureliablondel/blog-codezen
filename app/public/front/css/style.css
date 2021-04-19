@@ -5,10 +5,12 @@
 @font-face{
     font-family: Cupcake;
     src: url(http://code-zen.test/app/public/front/fonts/cupcake_font-webfont.woff);
+    src: url(http://code-zen.test/app/public/front/fonts/cupcake_font-webfont.woff2);
 }
 @font-face{
     font-family: Believe-it;
     src: url(http://code-zen.test/app/public/front/fonts/believe_it-webfont.woff);
+    
 }
 
 /*============= Reset =============*/
