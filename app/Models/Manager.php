@@ -14,7 +14,8 @@ class Manager{
         if(isset(self::$bdd)){
             return self::$bdd;
         }else{
-        try{            
+        try{                
+            
             self::$bdd  = new \PDO("mysql:host=".$_ENV['DB_HOST'].":".$_ENV['DB_PORT'].";dbname=".$_ENV['DB_NAME'].";charset=utf8", $_ENV['DB_USER'], $_ENV['DB_PASSWORD']); // connexion à la bdd
             return self::$bdd;
         }catch(Exception $e){

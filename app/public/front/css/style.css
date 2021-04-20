@@ -1,15 +1,14 @@
 @font-face{
     font-family: Roboto-light;    
-    src: url(http://code-zen.test/app/public/front/fonts/roboto-light-webfont.woff);        
+    src: url(http://blog-codezen.test/app/public/front/fonts/roboto-light-webfont.woff);        
 }
 @font-face{
     font-family: Cupcake;
-    src: url(http://code-zen.test/app/public/front/fonts/cupcake_font-webfont.woff);
-    src: url(http://code-zen.test/app/public/front/fonts/cupcake_font-webfont.woff2);
+    src: url(http://blog-codezen.test/app/public/front/fonts/cupcake_font-webfont.woff);    
 }
 @font-face{
     font-family: Believe-it;
-    src: url(http://code-zen.test/app/public/front/fonts/believe_it-webfont.woff);
+    src: url(http://blog-codezen.test/app/public/front/fonts/believe_it-webfont.woff);
     
 }
 
@@ -25,9 +24,20 @@
         +++++++++++++++++++++++++++++++++++++++
 */
 
+html{
+    /* position: relative; */
+    height: 100%;
+}
+body{  
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 70px;
+    /* box-sizing: border-box; */
+}
 .main-content{
     max-width: 369px;
     width: 100%;
+    margin-bottom: 70px;
     font-family: 'Roboto-light';    
 }
 
@@ -162,12 +172,17 @@ TEMPLATE
             Footer
         -------------*/
 
-footer{    
+footer{  
+    position: absolute;
+    bottom: 0;  
+    /* left: 0;
+    right: 0; */
     padding-top: 30px;    
     background-color: #2a4e62;
     color: #eeedff;
     text-align: center;
     height: 70px;
+    width: 100%;
 }
 
 /*
