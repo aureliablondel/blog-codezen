@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <header class="header-container">        
         <div class="logo-block">
             <h1><a href="/">Code Zen</a></h1>        
@@ -49,7 +50,7 @@
         <div>Copyright Aurélia - Kercode - 2021</div>
     </footer>
     
-    <!-- <script src="app/public/front/js/jquery-1.9.0.min.js"></script>     -->
+    
     <script src="app/public/front/js/burger.js"></script>
     <script src="app/public/front/js/passwordMask.js"></script>
     <script src="app/public/front/js/connectButton.js"></script>

@@ -3,7 +3,7 @@
 ?>
 
 <div class="principal-img">
-    <img src="app\public\front\images\Bureau-zen.png" alt="bureau zen">
+    <img src="app\public\front\images\bureau-zen.png" alt="bureau zen">
 </div>
 
 <div class="title-block">
