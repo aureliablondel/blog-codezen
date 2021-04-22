@@ -188,7 +188,7 @@ try{
             session_destroy(); // on ferme la session
             header('Location: index.php');
         }
-    }elseif{}
+    
     
 
         
