@@ -23,17 +23,17 @@ try{
             $frontController->search($search);
         }
         // envoi sur blog
-        if($_GET['action'] == 'blog'){
+        elseif($_GET['action'] == 'blog'){
             $frontController->blog();
         }
         // sélection d'un article à partir du blog
-        if($_GET['action'] == 'readArticle'){
+        elseif($_GET['action'] == 'readArticle'){
             $id = $_GET['id'];            
             $frontController->display($id);
         }
         
         // sélection d'un article à partir de l'accueil
-        if($_GET['action'] == 'readNext'){
+        elseif($_GET['action'] == 'readNext'){
             $id = $_GET['id'];            
             $frontController->nextArticle($id);
         }
@@ -44,11 +44,11 @@ try{
             
         */
         // envoi sur le formulaire d'inscription
-        if($_GET['action'] == 'signUp'){
+        elseif($_GET['action'] == 'signUp'){
             $frontController->signUp();
         }
         // enregistrement du nouvel utilisateur
-        if($_GET['action'] == 'registerUser'){
+        elseif($_GET['action'] == 'registerUser'){
             
             $id = $_GET['id'];
             
@@ -66,7 +66,7 @@ try{
         // }else{$frontController->signUp();}
     }
         // confirmation inscription
-        if($_GET['action'] == 'confirmRegister'){
+        elseif($_GET['action'] == 'confirmRegister'){
             $frontController->confirmRegister();
         }
 
@@ -74,7 +74,7 @@ try{
         // envoi sur le formulaire de connexion
         // ----------------------------------------
         
-        if($_GET['action'] == 'logIn'){
+        elseif($_GET['action'] == 'logIn'){
             $frontController->logIn();
         }
 
@@ -82,7 +82,7 @@ try{
         // connexion utilisateur
         // -------------------------
 
-        if($_GET['action'] == 'connectUser'){            
+        elseif($_GET['action'] == 'connectUser'){            
             $pseudo = htmlspecialchars($_POST['pseudo']);
             $password = htmlspecialchars($_POST['password']);
             if(!empty($pseudo && $password)){          
@@ -96,7 +96,7 @@ try{
         // changer mot de passe
         // -----------------------
 
-        if($_GET['action'] == 'changePassword'){
+        elseif($_GET['action'] == 'changePassword'){
             $idUser = $_GET['id'];            
             $password = $_SESSION['password'];
             $pseudo = $_SESSION['pseudo'];
@@ -113,12 +113,12 @@ try{
         
         /*================ POST COMMENTAIRES ================*/
         // accéder au formulaire de connexion de l'espace membre
-        if($_GET['action'] == 'goSpaceMember'){
+        elseif($_GET['action'] == 'goSpaceMember'){
             $frontController->goSpaceMember();
         }
         
         // poster un commentaire
-        if($_GET['action'] == 'postComment'){
+        elseif($_GET['action'] == 'postComment'){
             $idArticle = $_GET['id'];
             $idUser = $_SESSION['user_id'];
             $contentComment = htmlspecialchars($_POST['comment']);            
@@ -129,7 +129,7 @@ try{
         // afficher le commentaire à modifier
         // -----------------------------------------------
         
-        if($_GET['action'] == 'updateComment'){
+        elseif($_GET['action'] == 'updateComment'){
             $commentId = $_GET['id'];
             $frontController->editComment($commentId);          
         }
@@ -138,7 +138,7 @@ try{
         // modifier le commentaire
         // ---------------------------
 
-        if($_GET['action'] == 'submitComment'){
+        elseif($_GET['action'] == 'submitComment'){
             $commentId = $_GET['id'];            
             $updateComment = htmlspecialchars($_POST['contentComment']);
             $date = $_POST['date'];
@@ -150,14 +150,14 @@ try{
         // supprimer le commentaire
         // --------------------------
 
-        if($_GET['action'] == 'deleteComment'){
+        elseif($_GET['action'] == 'deleteComment'){
             $commentId = $_GET['id'];
             $idUser = $_SESSION['user_id'];
             $frontController->deleteComment($commentId, $idUser);
         }
 
         // connexion pour poster commentaire
-        if($_GET['action'] == 'connectForPost'){
+        elseif($_GET['action'] == 'connectForPost'){
             $idArticle = $_GET['id'];
             $pseudo = htmlspecialchars($_POST['pseudo']);
             $password = htmlspecialchars($_POST['password']);
@@ -183,11 +183,15 @@ try{
         // Déconnexion
         // --------------
 
-        if($_GET['action'] == 'disconnection'){
+       elseif($_GET['action'] == 'disconnection'){
             // session_unset();
             session_destroy(); // on ferme la session
             header('Location: index.php');
+        }else
+             {
+            $frontController->accueil();
         }
+
     
     
 
