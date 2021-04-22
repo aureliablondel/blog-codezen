@@ -1,2 +1,2 @@
-ErrorDocument 404 /error.php
-ErrorDocument 500 /error.php
+ErrorDocument 404 /https://www.herokucdn.com/error-pages/application-error.html
+ErrorDocument 500 /https://www.herokucdn.com/error-pages/application-error.html
