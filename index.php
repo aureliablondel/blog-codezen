@@ -188,15 +188,22 @@ try{
             session_destroy(); // on ferme la session
             header('Location: index.php');
         }
+    }elseif{}
+    
+
+        
 
 
 
-
-
+    
+    
+    
     }else{       
         $frontController->accueil(); // si pas d'action on appelle la variable et on applique la méthode accueil définie ds fichier FrontController
     }
 
-} catch(Exception $e){ 
+
+}catch(Exception $e){ 
     die('Erreur: ' . $e->getMessage());
 }
+

@@ -44,7 +44,7 @@
             
         <div>
             
-            <input type="checkbox" id="test" name="test" value="on">
+            <input type="checkbox" id="test" name="test" value="on" required>
             <label for="test">J'accepte la politique de confidentialité</label>
             
         </div>

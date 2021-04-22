@@ -321,7 +321,9 @@ class FrontController{
         }else{
             $errors['login-failed'] = 'Vos identifiants sont incorrects';
             $this->logIn($errors);            
-        }            
+        } 
+        
+        
         
     }
 
