@@ -189,7 +189,8 @@ try{
             header('Location: index.php');
         }else
              {
-            $frontController->accueil();
+            // $frontController->accueil();
+            require "error.php";
         }
 
     

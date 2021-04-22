@@ -323,7 +323,7 @@ class FrontController{
             $this->logIn($errors);            
         } 
         
-        
+    
         
     }
 
