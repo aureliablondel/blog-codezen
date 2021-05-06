@@ -2,14 +2,11 @@
     ob_start();
 ?>
 
-<div class="principal-img">
-    <img src="app\public\front\images\welcome.jpg" alt="welcome">
-</div>
-
-<h2 class="principal-title">Blog Zen</h2>
+<h2 class="blog-title">Mon Blog Zen</h2>
 
 <section class="intro-container">        
     <?php foreach($blogArticles as $blogArticle): ?>   
+        <!-- articles du blog -->
         <article class="articles-block">
             <div class="article-img">
                 <img src="<?= $blogArticle['img'] ?>" alt="<?= $blogArticle['titleImg'] ?>">
@@ -17,9 +14,9 @@
             <div class="article-text">
                 <h3><?= htmlspecialchars($blogArticle['title']) ?></h3>
                 <p><?= htmlspecialchars($blogArticle['content']) ?></p>
-            </div>
-            <a href="index.php?action=readArticle&id=<?= $blogArticle['art_id'] ?>">Lire la suite</a>                         
-        </article>    
+            </div>                                     
+        </article> 
+        <a class="link-article" href="index.php?action=readArticle&id=<?= $blogArticle['art_id'] ?>" title="Lire l'article complet">Lire la suite</a>   
     <?php endforeach; ?>        
 </section>
 

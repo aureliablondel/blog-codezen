@@ -25,7 +25,7 @@ class ArticleManager extends Manager{
 
     public function getArticles(){
         $bdd = $this->dbConnect();
-        $req = $bdd->query('SELECT * FROM articles LEFT JOIN images ON articles.idImg = images.img_id ORDER BY art_id DESC');
+        $req = $bdd->query('SELECT art_id, title, content, titleImg, img FROM articles LEFT JOIN images ON articles.idImg = images.img_id ORDER BY art_id DESC');
         return $req;
     }
 
@@ -35,8 +35,8 @@ class ArticleManager extends Manager{
 
     public function editArticle($id){
         $bdd = $this->dbConnect();       
-        $req = $bdd->prepare('SELECT * FROM articles INNER JOIN images ON articles.idImg = images.img_id WHERE art_id = ?');
-        $req->execute(array($id));       
+        $req = $bdd->prepare('SELECT art_id, title, content, titleImg, img FROM articles INNER JOIN images ON articles.idImg = images.img_id WHERE art_id = ?');
+        $req->execute([$id]);       
         return $req;
     }
 
@@ -96,7 +96,7 @@ class ArticleManager extends Manager{
 
     public function getLastArticles(){
         $bdd = $this->dbConnect();
-        $req = $bdd->query('SELECT art_id, title, content, img, titleImg, dateEdit FROM articles LEFT JOIN images ON articles.idImg = images.img_id WHERE category = "blog" ORDER BY dateEdit DESC LIMIT 4');
+        $req = $bdd->query('SELECT art_id, title, content, img, titleImg, DATE_FORMAT(dateEdit, "%d/%m/%Y") AS dateEdit FROM articles LEFT JOIN images ON articles.idImg = images.img_id WHERE category = "blog" ORDER BY dateEdit DESC LIMIT 4');
         return $req;
     }
    

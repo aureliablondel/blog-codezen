@@ -2,6 +2,10 @@
 
 <h2>Liste des articles</h2>
 
+<div class="btn_gestion btn_grey">
+    <a href="indexAdmin.php?action=createArticle" title="Créer un nouvel article">Nouvel article</a>
+</div>
+
 <section class="all_articles"> 
     <div class="articles">
         <?php foreach($allArticles as $allArticle): ?>
@@ -16,21 +20,17 @@
 
                 <div class="btn">                   
                     <div class="btn_gestion btn_blue">
-                        <a href="indexAdmin.php?action=editArticle&id=<?= $allArticle['art_id'] ?>">Modifier</a> <!-- on recupere l'id de l'article-->
+                        <a href="indexAdmin.php?action=editArticle&id=<?= $allArticle['art_id'] ?>" title="Afficher l'article à modifier">Modifier</a>
                     </div>
                             
                     <div class="btn_gestion btn_red">
-                        <a href="indexAdmin.php?action=deleteArticle&id=<?= $allArticle['art_id'] ?>">Supprimer</a> <!-- on recupere l'id de l'article-->
+                        <a href="indexAdmin.php?action=deleteArticle&id=<?= $allArticle['art_id'] ?>" title="supprimer l'article">Supprimer</a>
                     </div>
                 </div>
             </article>
         <?php endforeach; ?>
-    </div>
-
-    <div class="btn_gestion btn_grey">
-        <a href="indexAdmin.php?action=createArticle">Nouvel article</a>
-    </div>
+    </div>    
 </section>
 
-<?php $content = ob_get_clean(); ?> <!-- fonction php pour injecter le template -->
+<?php $content = ob_get_clean(); ?>
 <?php require 'templates/template.php'; ?>

@@ -2,7 +2,7 @@
 
 <h2>Création d'un nouvel article</h2>
 
-<section class="new_article">
+<div class="new_article">
     <form action="indexAdmin.php?action=logArticle" method="POST">   
         <div class="title">
             <label class="label_form" for="title">Titre</label>
@@ -22,7 +22,7 @@
                     <div class="img_art">
                         <img src="<?= $getImage['img'] ?>" alt="<?= $getImage['titleImg'] ?>">                              
                     </div>
-                    <input class="selectedImg" type="checkbox" id="selectImg" name="selectImg" value="<?= $getImage['img_id'] ?>">
+                    <input class="selectedImg" type="checkbox" name="selectImg" value="<?= $getImage['img_id'] ?>">
                 </div>
             <?php endforeach; ?>
         </div> 
@@ -36,9 +36,9 @@
     </form>
     
     <div class="btn_return">
-        <a href="indexAdmin.php?action=articles">Retour aux articles</a>
+        <a href="indexAdmin.php?action=articles" title="Retour à la liste des articles">Retour aux articles</a>
     </div>
-</section>
+</div>
 
-<?php $content = ob_get_clean(); ?> <!-- fonction php pour injecter le template -->
+<?php $content = ob_get_clean(); ?>
 <?php require 'templates/template.php'; ?>

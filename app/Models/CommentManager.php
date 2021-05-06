@@ -21,7 +21,7 @@ class CommentManager extends Manager{
 
     public function getComments($id){
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('SELECT contentComment, dateComment FROM comments WHERE idArticle = ?');
+        $req = $bdd->prepare('SELECT contentComment, DATE_FORMAT(dateComment, "%d/%m%Y") AS dateComment FROM comments WHERE idArticle = ?');
         $req->execute([$id]);
         return $req;
     }
@@ -32,7 +32,7 @@ class CommentManager extends Manager{
 
     public function getUserComments($idUser){
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('SELECT contentComment, comment_id, dateComment FROM comments WHERE idUser = ?');
+        $req = $bdd->prepare('SELECT contentComment, comment_id, DATE_FORMAT(dateComment, "%d/%m/%Y") AS dateComment, title FROM comments LEFT JOIN articles ON comments.idArticle = articles.art_id WHERE idUser = ?');
         $req->execute([$idUser]);
         return $req;
     }
@@ -43,7 +43,7 @@ class CommentManager extends Manager{
 
     public function getComment($commentId){
         $bdd = $this->dbConnect();
-        $req = $bdd->prepare('SELECT comment_id, contentComment, dateComment FROM comments WHERE comment_id = ?');
+        $req = $bdd->prepare('SELECT comment_id, contentComment, DATE_FORMAT(dateComment, "%d/%m/%Y") AS dateComment FROM comments WHERE comment_id = ?');
         $req->execute([$commentId]);
         return $req;
     }

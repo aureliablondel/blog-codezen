@@ -1,13 +1,4 @@
-let btnConnect = document.getElementById('btn-connect');
-let form = document.getElementById('form-connect');
-
-btnConnect.addEventListener('click', (event)=>{
-    if(form.style.display == 'block'){
-        form.style.display = 'none';
-    }else{
-        form.style.display = 'block';
-    }
-});
+// Affichage d'infos au passage de la souris sur les boutons permettant de poster un commentaire
 
 let btnSignUp = document.querySelector('.btn-connect');
 let btnOneComment = document.getElementById('btnOneComment');
@@ -27,7 +18,6 @@ btnSignUp.addEventListener('mouseout', (event)=>{
         btnOneComment.style.display = 'block';
     }
 });
-
 
 let btnTwoComment = document.getElementById('btnTwoComment');
 

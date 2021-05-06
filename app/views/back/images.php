@@ -2,6 +2,10 @@
 
 <h2>Catalogue des images</h2>
 
+<div class="btn_gestion btn_grey">
+        <a href="indexAdmin.php?action=image" title="enregistrer une nouvelle image">Nouvelle image</a>
+    </div>
+
 <section class="images"> 
     <div class="all_images">   
         <?php foreach($getImages as $getImage):?>        
@@ -11,16 +15,13 @@
                 </div>
             
                 <div class="btn_img">
-                    <a href="indexAdmin.php?action=deletImg&id=<?= $getImage['img_id'] ?>">Supprimer</a>
+                    <a href="indexAdmin.php?action=deletImg&id=<?= $getImage['img_id'] ?>" title="Supprimer l'image">Supprimer</a>
                 </div>
             </div>        
         <?php endforeach ?>
     </div>
-
-    <div class="btn_gestion btn_grey">
-        <a href="indexAdmin.php?action=image">Nouvelle image</a>
-    </div>
+    
 </section>
 
-<?php $content = ob_get_clean(); ?> <!-- fonction php pour injecter le template -->
+<?php $content = ob_get_clean(); ?>
 <?php require 'templates/template.php'; ?>

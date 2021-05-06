@@ -1,3 +1,5 @@
+// Affichage / masquage des mots de passe lors de la saisie
+
 let pass = document.getElementsByClassName('pass');
 let togglepass = document.getElementsByClassName('pass-eye');
 

@@ -5,14 +5,15 @@
 <section class="card_gestion">
 
     <div class="card_tb">
-        <a href="indexAdmin.php?action=articles"><h3>Mes articles</h3></a>     
+        <h3><a href="indexAdmin.php?action=articles" title="Afficher tous les articles">Mes articles</a></h3>     
     </div>
 
     <div class="card_tb">
-        <h3><a href="indexAdmin.php?action=images">Mes images</a></h3>        
+        <h3><a href="indexAdmin.php?action=images" title="Afficher toutes les images">Mes images</a></h3>        
     </div>
     
 </section>
 
-<?php $content = ob_get_clean(); ?> <!-- fonction php pour injecter le template -->
+<!-- fonction php pour injecter le template -->
+<?php $content = ob_get_clean(); ?>
 <?php require 'templates/template.php'; ?>

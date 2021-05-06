@@ -2,11 +2,11 @@
 
 <h2>Ajouter une image</h2>
 
-<section class="new_article">   
-    <form action="indexAdmin.php?action=uploadImg" method="post" enctype="multipart/form-data" class="formImg">
+<div class="new_article">   
+    <form action="indexAdmin.php?action=uploadImg" method="POST" enctype="multipart/form-data" class="formImg">
         <div class="title">
-            <label class="label_form" for="title">Titre SEO</label>
-            <input class="input_form" type="text" name="title" id="title">
+            <label class="label_form" for="titleImg">Titre SEO</label>
+            <input class="input_form" type="text" name="title" id="titleImg">
         </div>
 
         <div class="btn_file">
@@ -22,10 +22,10 @@
     </form>
 
     <div class="btn_return">
-        <a href="indexAdmin.php?action=images">Retour aux images</a>
+        <a href="indexAdmin.php?action=images" title="Retour au catalogue des images">Retour aux images</a>
     </div>
 
-</section>
+</div>
 
-<?php $content = ob_get_clean(); ?> <!-- fonction php pour injecter le template -->
+<?php $content = ob_get_clean(); ?>
 <?php require 'templates/template.php'; ?>

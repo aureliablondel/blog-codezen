@@ -4,9 +4,9 @@
 
 <div class="color-content">
 
-<p class="error-message">Tous les champs doivent être renseignés</p>
+    <p class="error-message">Les champs ne sont pas correctement renseignés</p>
 
-<a class="btn-return" href="index.php?action=logIn">Retour à la page de connexion</a>
+    <a class="btn-return" href="index.php?action=logIn" title="Retour à la page de connexion">Retour à la page de connexion</a>
 
 </div>
 

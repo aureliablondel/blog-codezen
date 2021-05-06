@@ -1,12 +1,11 @@
 <?php
+
 namespace Project\Controllers\Front;
 
 class FrontController{
 
     /* ==========================================
-
-                GESTION DES ARTICLES
-    
+                GESTION DES ARTICLES    
     =============================================*/
 
     // ---------------------------------------------
@@ -69,15 +68,18 @@ class FrontController{
         $getComments = $comment->getComments($id);
         require 'app/views/front/selectedArticle.php';
     }
+    // ---------------------------------------------------------
+    // envoi sur la page TUTOS
+    // ---------------------------------------------------------
+    function tutos(){
+        require 'app/views/front/tutos.php';
+    }
 
-    /* ==========================================
-    
-                GESTION DES UTILISATEURS
-                
-    ============================================= */
-
+    /*        
+        ============== GESTION DES UTILISATEURS =================            
+    */
     // -----------------------------------
-    // envoi sur formulaire d'inscription
+    // envoi sur formulaire d'INSCRIPTION
     // -----------------------------------
 
     function signUp($errors=array()){           
@@ -85,7 +87,7 @@ class FrontController{
     }
 
     // --------------------------------
-    // enregistrement de l'utilisateur
+    // INSCRIPTION de l'utilisateur
     // --------------------------------
 
     function registerUser($id, $pseudo, $mail, $password, $confirmPassword, $registeredPass){       
@@ -129,24 +131,10 @@ class FrontController{
         }else{         
             $this->signUp($errors);
         }
-    }
-
-    // -----------------------------------
-    // envoi page erreurRGPD
-    // -----------------------------------
-
-    function errorRGPD($id){
-        require 'app/views/front/errorRGPD.php';
-    }
-
-    // -----------------------------------
-    // affichage confirmation inscription
-    // -----------------------------------
-    function confirmRegister(){
-        require 'app/views/front/confirmRegister.php';
-    }
+    }    
+    
     // -------------------------------------
-    // envoi sur formulaire de connexion
+    // envoi sur formulaire de CONNEXION
     // -------------------------------------
 
     function logIn($errors=array()){
@@ -154,7 +142,7 @@ class FrontController{
     }
 
     // ------------------------
-    // connexion utilisateur
+    // CONNEXION utilisateur
     // ------------------------
 
     function connectUser($pseudo, $password){
@@ -168,10 +156,8 @@ class FrontController{
         
         if($isPasswordCorrect){
             $comment = new \Project\Models\CommentManager();
-            $userComments = $comment->getUserComments($idUser);
-            
-            require 'app/views/front/dashboardUser.php';
-            // header('Location: index.php?action=connectUser&id=' .$idUser);
+            $userComments = $comment->getUserComments($idUser);            
+             require 'app/views/front/dashboardUser.php';            
         }else{
             $errors['login-failed'] = 'Vos identifiants sont incorrects';
             $this->logIn($errors);            
@@ -179,7 +165,7 @@ class FrontController{
     }
 
     // --------------------------------------------------------------------
-    // envoi sur page erreur si les champs de la page connexion sont vides
+    // envoi sur page ERREUR si les champs de la page connexion sont vides
     // --------------------------------------------------------------------
 
     function errorConnect(){
@@ -187,10 +173,10 @@ class FrontController{
     }
     
     // ------------------------
-    // changer le mot de passe
+    // CHANGER le mot de passe
     // ------------------------
 
-    function changePassword($idUser,$pseudo, $password, $oldPassword, $newPassword, $confirmPassword){                
+    function changePassword($idUser,$pseudo, $oldPassword, $newPassword){                
         $user = new \Project\Models\UserManager();
         $userRegistered = $user->recupPassword($pseudo);
         $result = $userRegistered->fetch();        
@@ -205,57 +191,71 @@ class FrontController{
     }
 
     // ------------------------------------------------------------------------
-    // envoi sur page erreur si les champs pour changer mot de passe sont vides
+    // envoi sur page ERREUR si les champs pour changer mot de passe sont vides
     // ------------------------------------------------------------------------
 
     function errorChangePass(){
         require 'app/views/front/errorChangePass.php';
-    }
-    
-    // ------------------------------------------------------------------------
-    // envoi sur page erreur si le mot de passe saisi est invalide
-    // ------------------------------------------------------------------------
-
-    function errorPassInvalid(){
-        require 'app/views/front/errorPassInvalid.php';
     }    
 
-    /*============== GESTION DES COMMENTAIRES ================*/
-    
-    // accéder au formulaire de connexion de l'espace membre
-    function goSpaceMember(){
-        require 'app/views/front/inscription.php';
-    }
-    // poster un commentaires à partir d'un article de l'accueil
+    /*
+        ============== GESTION DES COMMENTAIRES ================
+    */  
+    // --------------------------
+    // POSTER un commentaire
+    // --------------------------
+
     function postComment($contentComment, $idUser, $idArticle){
         $comment = new \Project\Models\CommentManager();
         $postComment = $comment->postComment($contentComment, $idUser, $idArticle);
-     header('Location: index.php?action=readNext&id='.$idArticle);    
+        header('Location: index.php?action=readNext&id='.$idArticle);    
     }
 
-     // poster un commentaires à partir d'un article du blog
-    //  function postCommentBlog($contentComment, $idUser, $idArticle){
-    //     $comment = new \Project\Models\CommentManager();
-    //     $postComment = $comment->postComment($contentComment, $idUser, $idArticle);
-    //  header('Location: index.php?action=readArticle&id='.$idArticle);    
-    // }
+    // --------------------------
+    // SE CONNECTER pour POSTER un commentaire
+    // --------------------------
 
+    function connectForPost($id, $pseudo, $password){             
+        $user = new \Project\Models\UserManager();
+        $userRegistered = $user->recupPassword($pseudo, $password);
+        $result = $userRegistered->fetch();
+        $isPasswordCorrect = password_verify($password, $result['password']); 
+        $_SESSION['user_id'] = $result['user_id'];
+        $_SESSION['pseudo'] = $result['pseudo'];        
+        $_SESSION['password'] = $result['password'];        
+        
+        if($isPasswordCorrect){
+            $article = new \Project\Models\ArticleManager();
+            $selectArticle = $article->displayArticle($id);
+            $displayArticle = $selectArticle->fetch();
+            $comment = new \Project\Models\CommentManager();
+            $getComments = $comment->getComments($id);            
+            header('Location: index.php?action=readArticle&id='. $id);
+        }else{
+            require 'app/views/front/errorConnect.php';     
+        } 
+    }
 
-    // afficher les commentaires liés à l'article
+    // ---------------------------------------------
+    // AFFICHER les commentaires liés à l'article
+    // ---------------------------------------------
+
     function getComments($id){
         $comment = new \Project\Models\CommentManager();
-        $getComments = $comment->getComments($id);
-        // require 'app/views/front/selectedArticle.php';
+        $getComments = $comment->getComments($id);        
     }
 
-    // afficher les commentaires liés à l'utilisateur
+    // -----------------------------------------------
+    // AFFICHER les commentaires liés à l'utilisateur
+    // -----------------------------------------------
+
     function getUserComments($id){
         $comment = new \Project\Models\CommentManager();
         $userComments = $comment->getUserComments($id);
     }
     
     // ----------------------------------------
-    // afficher le commentaire à modifier
+    // AFFICHER le commentaire à modifier
     // ----------------------------------------
 
     function editComment($commentId){
@@ -266,66 +266,31 @@ class FrontController{
     }
 
     // ----------------------------------
-    // modifier le commentaire
+    // MODIFIER le commentaire
     // ----------------------------------
+
     function updateComment($commentId, $updateComment, $date, $idUser){
         $comment = new \Project\Models\CommentManager();
         $updateComment = $comment->updateComment($commentId, $updateComment, $date);
         $commentUpdated = $updateComment->fetch();
         $userComments = $comment->getUserComments($idUser);
-       
-        // header('Location: index.php?action=readArticle');    
         require "app/views/front/dashboardUser.php";   
     }
 
     // ------------------------------
-    // supprimer le commentaire
+    // SUPPRIMER le commentaire
     // ------------------------------
 
     function deleteComment($commentId,$idUser){
         $comment = new \Project\Models\CommentManager();
-        $deleteComment = $comment->deleteComment($commentId);
-       
+        $deleteComment = $comment->deleteComment($commentId);       
         $userComments = $comment->getUserComments($idUser);
-        // header('Location: index.php?action=deleteComment&id='. $idUser);
-    require "app/views/front/dashboardUser.php";
-        
+        require "app/views/front/dashboardUser.php";        
     }
-
-
-
-
-
-    function connectForPost($id,$pseudo, $password, $idArticle){
-             
-      $user = new \Project\Models\UserManager();
-        $userRegistered = $user->recupPassword($pseudo, $password);
-        $result = $userRegistered->fetch(); // stocke cette ligne dans la variable result 
-        $isPasswordCorrect = password_verify($password, $result['password']); // compare le mdp de la table avec celui saisi    
-        $_SESSION['user_id'] = $result['user_id'];
-        $_SESSION['pseudo'] = $result['pseudo'];
-        // $_SESSION['mail'] = $result['mail'];
-        $_SESSION['password'] = $result['password'];
-        
-        
-        if($isPasswordCorrect){
-            $article = new \Project\Models\ArticleManager();
-            $selectArticle = $article->displayArticle($id);
-            $displayArticle = $selectArticle->fetch();
-            $comment = new \Project\Models\CommentManager();
-            $getComments = $comment->getComments($id);
-            // $comment = new \Project\Models\CommentManager();
-        // $userComments = $comment->getUserComments($idUser);
-            // require 'app/views/front/selectedArticle.php';
-            header('Location: index.php?action=readArticle&id='. $idArticle);
-        }else{
-            $errors['login-failed'] = 'Vos identifiants sont incorrects';
-            $this->logIn($errors);            
-        } 
         
     
         
-    }
+    
 
  
 

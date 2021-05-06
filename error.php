@@ -2,11 +2,11 @@
     ob_start();
 ?>
 
-<img src="" alt="rue 404">
-<p>Désolée, il n'y a personne à cette adresse !</p>
+<div class="color-content">
+<p class="error-message">Désolée, Une erreur est survenue</p>
 
-<a class="btn-return" href="/">Retour à l'accueil</a>
-
+<a class="btn-return" href="/" title="Retour à l'accueil">Retour à l'accueil</a>
+</div>
 
 <?php
     $content = ob_get_clean();

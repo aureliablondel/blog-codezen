@@ -13,10 +13,11 @@
     <?php foreach($userComments as $userComment): ?>
         <article class="comment-block">                   
             <p class="content-comment"><?= htmlspecialchars($userComment['contentComment']) ?></p>                
-            <p>Publié le <?= $userComment['dateComment'] ?></p>        
+            <p class="dateEdit">Publié le <?= $userComment['dateComment'] ?></p>
+            <p class="dateEdit">Article : <?=$userComment['title'] ?></p>        
             <div class="btn-block">                
-                <a href="index.php?action=updateComment&id=<?= $userComment['comment_id'] ?>" class="btn-link">Modifier</a>                    
-                <a href="index.php?action=deleteComment&id=<?= $userComment['comment_id'] ?>" class="btn-link">Supprimer</a>
+                <a href="index.php?action=updateComment&id=<?= $userComment['comment_id'] ?>" class="btn-link" title="Editer le commentaire à modifier">Modifier</a>                    
+                <a href="index.php?action=deleteComment&id=<?= $userComment['comment_id'] ?>" class="btn-link" title="Supprimer le commentaire">Supprimer</a>
             </div>
         </article> 
     <?php endforeach; ?>
@@ -29,13 +30,13 @@
             <input class="input-range pass" type="password" id="oldpassword" name="oldpassword" placeholder="Mot de passe" value="<?php if(isset($_POST['oldpassword'])){ echo $_POST['oldpassword']; } ?>">          
             <i class="fas fa-eye pass-eye" title="Afficher"></i>
         </div>
-            
+            <!-- message d'erreur si le mot de passe saisi n'est pas celui saisi dans la bdd -->
             <?php if(isset($errors['pass-invalid'])): ?>      
                 <span class="error"><?= $errors['pass-invalid'];?></span>
             <?php endif; ?>
 
         <div class="input-range">      
-            <input class="input-range pass" type="password" id="newpassword" name="newpassword" placeholder="Nouveau mot de passe (8 caractères minimum)" value="<?php if(isset($_POST['newpassword'])){ echo $_POST['newpassword']; } ?>">          
+            <input class="input-range pass" type="password" id="newpassword" name="newpassword" placeholder="Nouveau mot de passe (8 caractères min.)" value="<?php if(isset($_POST['newpassword'])){ echo $_POST['newpassword']; } ?>">          
             <i class="fas fa-eye pass-eye" title="Afficher"></i>
         </div>
             

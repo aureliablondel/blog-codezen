@@ -1,20 +1,20 @@
 <?php ob_start(); ?>
 
-<h2>Résultats de la recherche</h2>
+<h2 class="blog-title">Resultats de la recherche</h2>
 
-<section class="list_articles">
-
-    <div class="all_articles">        
+<div class="color-content">
+    <!-- affiche tous les articles comprenant le mot recherché -->
+    <section class="intro-container">           
         <?php foreach($selectSearchs as $selectSearch): ?>   
-            <div class="article">                
-                <h3><?= htmlspecialchars($selectSearch['title']) ?></h3>
-                <p><?= htmlspecialchars($selectSearch['content']) ?></p>                          
-            </div>    
-        <?php endforeach; ?>        
+            <article class="articles-block">
+                <div class="article-text">                
+                    <h3><?= htmlspecialchars($selectSearch['title']) ?></h3>
+                    <p><?= htmlspecialchars($selectSearch['content']) ?></p>                          
+                </div> 
+            </article>   
+            <?php endforeach; ?>  
+    </section>
     </div>
-
-</section>
-
 <?php
     $content = ob_get_clean();
     require 'templates/template.php';

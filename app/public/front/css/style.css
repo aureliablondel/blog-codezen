@@ -1,15 +1,14 @@
 @font-face{
     font-family: Roboto-light;    
-    src: url(https://blog-codezen.herokuapp.com/app/public/front/fonts/roboto-light-webfont.woff);        
+    src: url(http://blog-codezen.test/app/public/front/fonts/roboto-light-webfont.woff);        
 }
 @font-face{
     font-family: Cupcake;
-    src: url(https://blog-codezen.herokuapp.com/app/public/front/fonts/cupcake_font-webfont.woff);    
+    src: url(http://blog-codezen.test/app/public/front/fonts/cupcake_font-webfont.woff);    
 }
 @font-face{
     font-family: Believe-it;
-    src: url(https://blog-codezen.herokuapp.com/app/public/front/fonts/believe_it-webfont.woff);
-    
+    src: url(http://blog-codezen.test/app/public/front/fonts/believe_it-webfont.woff);    
 }
 
 /*============= Reset =============*/
@@ -17,36 +16,24 @@
     margin: 0;
     padding: 0;
 }
-
 /*
         +++++++++++++++++++++++++++++++++++++++
-            MEDIAQUERY POUR MOBILE < 369 PX
+                    MOBILE < 369 PX
         +++++++++++++++++++++++++++++++++++++++
 */
-
-html{
-    /* position: relative; */
-    height: 100%;
-}
-body{  
-    position: relative;
-    min-height: 100%;
-    padding-bottom: 70px;
-    box-sizing: border-box;
-}
-.main-content{
-    max-width: 369px;
-    width: 100%;
-    margin-bottom: 70px;
-    font-family: 'Roboto-light';    
-}
-
 /*
 ================================
 TEMPLATE
 ================================
 */
-
+html{    
+    height: 100%;
+}
+body{  
+    position: relative;
+    min-height: 100%;   
+    box-sizing: border-box;
+}
         /* -------------- 
             Header 
         ------------- */
@@ -58,14 +45,15 @@ TEMPLATE
     top: 0;
     z-index: 10;
     width: 100%;    
-    background-color: #2a4e62;        
+    background: linear-gradient(rgba(0, 28, 47, 1) 5%, rgba(42, 78, 98, 1) 95%);   
+    font-family: 'Roboto-light';      
 }
 .logo-block{
     width: 20%;
     padding: 25px 20px 0;
 }
 .logo-block a{    
-    color: #e4e4e4;
+    color: rgba(228, 228, 228, 1);
     text-decoration: none;
     font-family: 'Believe-it';
     font-size: 3rem;
@@ -73,6 +61,9 @@ TEMPLATE
 .right-block{     
     width: 60%;
     padding: 20px 15px 0 0; 
+}
+.search-container{
+    text-align: right;
 }
 .search-form{
     display: flex;
@@ -87,22 +78,20 @@ TEMPLATE
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px; 
-    background-color: #e4e4e4;
-    color: #2a4e62;      
-    font-family: 'Roboto-light';    
+    background-color: rgba(228, 228, 228, 1);
+    color: rgba(42, 78, 98, 1);         
 }
 .search-form input::placeholder{
-    color: #b1bac7;
+    color: rgba(177, 186, 199, 1);
 }
-.search-form button{
-    width: 20%;
-    padding-left: 15px;
+.search-form button{    
+    margin-left: 15px;
     border: none;
-    background-color: #2a4e62;
+    background-color: rgba(42, 78, 98, 0);
     cursor: pointer;        
 }
 .search-form i{
-    color: #e4e4e4;
+    color: rgba(228, 228, 228, 1);
     font-size: 1.5rem;
 }
 .log-container{ 
@@ -110,13 +99,13 @@ TEMPLATE
     text-align: right;
 }
 .log-container .space-member{    
-    color: #e4e4e4;
+    color: rgba(228, 228, 228, 1);
     font-size: 0.9rem;
     text-decoration: none;    
 }
 .log-container .space-member:hover{
     padding: 5px;
-    border: 2px #e4e4e4 solid;
+    border: 2px rgba(228, 228, 228, 1) solid;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -125,72 +114,69 @@ TEMPLATE
 }
 .log-container .power-off{
     margin-left: 10px;
-    color: #e4e4e4;
+    color: rgba(228, 228, 228, 1);
     font-size: 1.3rem;    
 }
 .nav-container{   
-    margin-top: 15px;   
+    padding-bottom: 10px; 
     text-align: right;
 }
 #burger i{    
-    color: #e4e4e4;
+    color: rgba(228, 228, 228, 1);
     cursor: pointer;
     font-size: 1.6rem;   
 } 
 #list-menu{
     display: none;    
 }
-#list-menu:before{
-    transition: opacity all .50s;
-    -webkit-transition: opacity all .50s;
-    -moz-transition: opacity all .50s;
-    -ms-transition: opacity all .50s;
-    -o-transition: opacity all .50s;
-}
-#list-menu:after{
-    transition: opacity all .25s;
-}
 #list-menu li{
     padding-top: 10px;
     list-style-type: none;    
 }   
 #list-menu li a{
-    color: #e4e4e4;
+    color: rgba(228, 228, 228, 1);
     text-decoration: none;   
     font-weight: bold;
 }
-
         /* ------------
             Main
         -------------*/
-/* 
-.main-content{
-    width: 100%;           
-} */
 
+.main-content{
+    max-width: 369px;
+    width: 100%;
+    /* height: 80%; */
+    margin: auto;    
+    font-family: 'Roboto-light'; 
+    padding-bottom: 150px;       
+}
      /* ------------
             Footer
         -------------*/
 
 footer{  
     position: absolute;
-    bottom: 0;  
-    /* left: 0;
-    right: 0; */
-    padding-top: 30px;    
-    background-color: #2a4e62;
-    color: #eeedff;
+    bottom: 0;     
+    padding-top: 20px;    
+    background: linear-gradient(rgba(42, 78, 98, 1), rgba(0, 28, 47, 1));
+    color: rgba(228, 228, 228, 1);
     text-align: center;
+    font-family: 'Roboto-light';
     height: 70px;
     width: 100%;
 }
-
+.footer-content p{
+    margin-bottom: 10px;
+}
+.footer-content a{
+    color: rgba(228, 228, 228, 1);
+    text-decoration: none;    
+}
 /*
 ================================
 ACCUEIL
 ================================
 */
-
 .principal-img img{    
     width: 100%;
 }
@@ -198,7 +184,7 @@ ACCUEIL
     padding: 20px 0;
     position: relative;
     top: -110px;
-    background-color: #e4e4e4;    
+    background-color: rgba(228, 228, 228, 1);    
     opacity: 0.7;    
 }
 .principal-title{    
@@ -211,49 +197,47 @@ ACCUEIL
 .welcome-title{
     position: relative;
     top: -40px;
-    margin: 0 20px 0;
-    color: #2a4e62;
+    margin: 0 20px -40px;
+    color: rgba(42, 78, 98, 1);
     font-family: 'Believe-it';
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-align: center;    
 }
 .intro-container{    
-    margin-bottom: 50px;
+    margin-bottom: 50px;    
 }
 .articles-block{   
     display: flex;
     flex-direction: column;
     align-items: center;    
-    margin: 30px 0 40px;  
+    margin: 60px 0 20px;  
 }
-.article-img{   
-    position: relative;
-    overflow: hidden;
-    width: 80%;
-    height: 200px;
-    margin-bottom: 10px;
-    text-align: left;        
+.article-img{      
+    width: 80%;    
 }
-.article-img img{
-    position: absolute;
-    width: 100%;
-    clip: rect(20px, auto, auto, auto);
-    top: -20px;
+.article-img img{    
+    width: 100%;    
 }
 .article-text{ 
     width: 90%;
-    font-size: 0.8rem;     
+    font-size: 0.8rem;
+    padding-top: 30px;     
 }
 .article-text h3{  
     padding: 20px 0 10px;  
-    color:#2a4e62;
+    color:rgba(42, 78, 98, 1);
     font-family: 'Cupcake';
     font-size: 1.1rem;   
 }
 .article-text p{
     text-align: justify;
     margin-bottom: 10px;
-}                           
+}
+.date-edit{
+    text-align: right;
+    font-style: italic;
+    font-size: 0.8rem;
+}                          
 .split-block{      
     padding: 30px 0;
     background-image: url("/app/public/front/images/white-flowers.jpg");
@@ -264,45 +248,101 @@ ACCUEIL
 }
  .split-title{    
     text-align: center;
-    color: #001c2f;
+    color: rgba(0, 28, 47, 1);
     font-family: 'Cupcake';    
 }
-.link-article{
-    margin-top: 10px;
-    text-decoration: none;
-    color: #001c2f;
-}
-.link-article:hover{
+.link-article{  
+    margin-left: 60%;
     padding: 10px;
+    text-decoration: none;
+    color: rgba(0, 28, 47, 1);
+    border: 1px solid rgba(0, 28, 47, 1);
     border-radius: 10px;
-    background-color: #001c2f;
-    color: #e4e4e4;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
-
+.link-article:hover{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(0, 28, 47, 1);
+    color: rgba(228, 228, 228, 1);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+/*
+================================
+BLOG
+================================
+*/
+/* 
+    .intro-container : ACCUEIL
+    .articles-block : ACCUEIL
+    .article-img : ACCUEIL
+    .article-text : ACCUEIL
+    .link-article : ACCUEIL
+ */
+.blog-title{    
+    padding-top: 30px;
+    padding-left: 20px;
+    color: rgba(0, 28, 47, 1);
+    font-family: 'Believe-it';
+    font-size: 2rem;
+    font-weight: bolder;   
+}
 /*
 ======================================================
 SELECTEDARTICLE 
 ======================================================
 */
-
+/* 
+    .articles-block : ACCUEIL
+    .article-img : ACCUEIL
+    .article-text : ACCUEIL
+    .form-signup : INSCRIPTION
+    .input-range : INSCRIPTION
+    .error : INSCRIPTION
+    .btn-form : INSCRIPTION
+    .btn-submit : INSCRIPTION
+    .display-container : INSCRIPTION
+    .title-signup : INSCRIPTION
+    .form-comment : INSCRIPTION
+ */
+ .display-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+ .selected-art{
+    margin: 20px 20px 30px;    
+}
+.selected-title{
+    margin-top: 30px;
+    font-family: 'Cupcake';
+    color: rgba(0, 28, 47, 1);
+}
 .connect-block{
-    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 30px;   
+}
+.connect-block h2{
+    margin-bottom: 20px;
 }
 .btn-connect, #btn-connect{
     margin: 0 10px;
     padding: 5px;
-    border: #2a4e62 1px solid;
+    border: rgba(42, 78, 98, 1) 1px solid;
     border-radius: 10px;    
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    background-color: #b1bac7;
-    color: #001c2f;
+    background-color: rgba(177, 186, 199, 1);
+    color: rgba(0, 28, 47, 1);
     font-weight: bolder;
     font-size: 1rem;
     font-family: 'Roboto-light';
@@ -311,39 +351,50 @@ SELECTEDARTICLE
 }
 #btnOneComment, #btnTwoComment{
     display: none;
-    margin-top: 20px;
-    color: #001c2f;
-    
-    font-size: 1.5rem;
+    width: 50%;
+    margin: 20px auto;
+    color: rgba(0, 28, 47, 1);    
+    font-size: 1.2rem;
+    text-align: center;
 }
 #form-connect{
-    display: none;
+    display: none;   
+    margin: 50px auto;
 }
-
+.btn-position{
+    margin: auto;
+}
+.comments-block{
+    padding: 40px 20px 30px;
+}
+.comment-detail{
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(42, 78, 98, 1);
+}
+.comment-detail p{
+    font-size: 0.8rem;
+}
+.comment-detail .p-date{
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 0.6rem;
+    text-align: right;
+}
 /*
 ======================================================
-PAGES INSCRIPTION / CONNEXION / ERROR 
+INSCRIPTION / CONNEXION
 ======================================================
 */
-
-.color-content{
-    background-color: #b1bac7;
+.color-content{        
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-bottom: 50px;
+    align-items: center;       
 }
 .title-signup{
     padding: 20px;    
-    background-color: #e4e4e4;
-    color: #001c2f;
+    background-color: rgba(228, 228, 228, 1);
+    color: rgba(0, 28, 47, 1);
     text-align: justify;
-}
-.title-signup span{
-    font-family: 'Cupcake';
-    color: #2a4e62;
-    font-size: 1.8rem;
-    margin-left: 10px;
 }
 .title-signup p{    
     font-size: 0.8rem;    
@@ -357,7 +408,7 @@ PAGES INSCRIPTION / CONNEXION / ERROR
     align-items: center;   
 }
 .form-signup .input-range{
-    background-color: #e4e4e4;    
+    background-color: rgba(228, 228, 228, 1);    
     border: none;
     border-radius: 5px;
     -webkit-border-radius: 5px;
@@ -373,20 +424,14 @@ PAGES INSCRIPTION / CONNEXION / ERROR
     padding: 0;
 }
 .form-signup .input::placeholder{
-    color: #b1bac7;
+    color: rgba(177, 186, 199, 1);
 }
 .form-signup i{
-    color: #2a4e62;
+    color: rgba(42, 78, 98, 1);
     font-size: 0.9rem;
 }
-.form-signup p{
-    margin-top: -10px;
-    margin-bottom: 10px;
-    padding-left: 5px;
-    color: #2a4e62;
-    font-size: 0.6rem;
-    font-style: italic;
-    align-self: start;
+.form-signup .test{
+    font-size: 0.8rem;
 }
 .form-signup .error{
     align-self : flex-end;
@@ -401,14 +446,10 @@ PAGES INSCRIPTION / CONNEXION / ERROR
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
-    background-color: #ff584d;
-    color: #e4e4e4;
+    background-color: rgba(255, 88, 77);
+    color: rgba(228, 228, 228, 1);
     font-size: 0.8rem;
     text-align: right;
-}
-.form-signup textarea{
-    width: 100%;
-    height: 150px;
 }
 .btn-form{
     width: 120px;
@@ -416,8 +457,8 @@ PAGES INSCRIPTION / CONNEXION / ERROR
 }
 .btn-form .btn-submit{
     background-color: none;
-    background-color: #2a4e62;
-    color: #e4e4e4;
+    background-color: rgba(42, 78, 98, 1);
+    color: rgba(228, 228, 228, 1);
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -429,68 +470,47 @@ PAGES INSCRIPTION / CONNEXION / ERROR
     -o-border-radius: 5px;
 }
 .btn-submit:active{
-    background-color: #e4e4e4;
-    color: #2a4e62;        
+    background-color: rgba(228, 228, 228, 1);
+    color: rgba(42, 78, 98, 1);        
 }
-.display-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-.display-article{
-    padding-bottom: 50px;
-    width: 100%;
-}
-.display-img img{
-    width: 100%;
-}
-.date-edit{
-    text-align: right;
-    font-style: italic;
-    font-size: 0.8rem;
-}
-.display-article h2{
-    text-align: start;
-    padding: 30px 0 20px;
-    font-family: 'Cupcake';
-}
-.display-content{
-    text-align: justify;
-}
-
-
+/*
+======================================================
+ERRORCONNECT
+======================================================
+*/
+/* 
+    .color-content : INSCRIPTION
+ */
 .error-message{
-    margin: 50px 0 50px;
+    margin: 80px 40px 30px;
     padding: 10px;
-    background-color: #ff584d;
+    background-color: rgba(255, 88, 77);
     border: 2px solid;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
-    color: #e4e4e4;
+    color: rgba(228, 228, 228, 1);
+    text-align: center;
 }
 .btn-return{
-    margin-top: 50px;
+    margin: 20px 0 50px;
     padding: 10px;
-    border: #e4e4e4 2px solid;
+    border: rgba(228, 228, 228, 1) 2px solid;
     border-radius:5px;
     -o-border-radius:5px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
     -ms-border-radius:5px;
-    color: #001c2f;
+    color: rgba(0, 28, 47, 1);
     text-decoration: none;
 }
-
 /*
 ======================================================
 DASHBOARDUSER
 ======================================================
 */
-
 /*
     .title-signup : INSCRIPTION
     .color-content : INSCRIPTION
@@ -499,7 +519,12 @@ DASHBOARDUSER
     .error : INSCRIPTION
     .btn-form : INSCRIPTION
 */
-
+.title-signup span{
+    font-family: 'Cupcake';
+    color: rgba(42, 78, 98, 1);
+    font-size: 1.8rem;
+    margin-left: 10px;
+}
 .title-dashboard{
     margin-top: 30px;      
 }
@@ -513,13 +538,20 @@ DASHBOARDUSER
 .content-comment{ 
     width: 80%;
     padding: 10px;    
-    background-color: #e4e4e4;
+    background-color: rgba(228, 228, 228, 1);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     font-size: 0.8rem;
+}
+.dateEdit{
+    font-style: italic;
+    font-size: 0.8rem;
+    align-self: flex-end;
+    padding-right: 30px;
+    margin-top: 20px;    
 }
 .btn-block{
     display: flex;    
@@ -529,8 +561,8 @@ DASHBOARDUSER
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #2a4e62;
-    color: #e4e4e4;
+    background-color: rgba(42, 78, 98, 1);
+    color: rgba(228, 228, 228, 1);
     font-size: 0.8rem;
     text-decoration: none;
     -webkit-border-radius: 5px;
@@ -539,16 +571,14 @@ DASHBOARDUSER
     -o-border-radius: 5px;
 }
 .btn-link:hover{
-    background-color: #e4e4e4;
-    color: #2a4e62;
+    background-color: rgba(228, 228, 228, 1);
+    color: rgba(42, 78, 98, 1);
 }
-
 /*
 ======================================================
 COMMENTEDITED
 ======================================================
 */
-
 /*
     .title-signup : INSCRIPTION
     .color-content : INSCRIPTION    
@@ -556,8 +586,14 @@ COMMENTEDITED
     .error : INSCRIPTION
     .btn-form : INSCRIPTION
 */
-
-
+.title-commentEdited{
+    width: 100%; 
+    padding: 20px;
+    margin-bottom: 40px;       
+    background-color: rgba(228, 228, 228, 1);
+    color: rgba(0, 28, 47, 1);
+    text-align: center;
+}
 .form-comment{
     display: flex;
     flex-direction: column;
@@ -566,8 +602,8 @@ COMMENTEDITED
 }
 .form-comment textarea, .form-comment input{
     width: 80%;    
-    margin: 40px 0 20px;    
-    background-color: #e4e4e4;    
+    margin: 20px 0 20px;    
+    background-color: rgba(228, 228, 228, 1);    
     border: none;
     border-radius: 5px;    
     padding: 10px;
@@ -576,32 +612,81 @@ COMMENTEDITED
 .form-comment textarea{
     height: 80px;
 }.form-comment textarea::placeholder, .form-comment input::placeholder{
-    color: #b1bac7;
+    color: rgba(177, 186, 199, 1);
 }
-
+/*
+        +++++++++++++++++++++++++++++++++++++++
+                370 < MOBILE < 767 PX
+        +++++++++++++++++++++++++++++++++++++++
+*/
 @media screen and (min-width: 370px) and (max-width: 767px){
 
 .main-content{
     min-width: 370px;
-    max-width: 768px;
-    width: 100%;
+    max-width: 767px;
+    width: 100%;   
 }
 .principal-title{
-    font-size: 3rem;
+    font-size: 2.2rem;
+}
+.welcome-title{
+    margin-bottom: -20px;
+    font-size: 1.8rem;
+}
+.article-img{    
+    width: 70%;    
+}
+.article-img img{
+   width: 100%;   
+}
+.selected-art{
+    margin-top: 20px;
+}
+.color-content{
+    width: 70%;
+    min-width: 300px;
+    margin: auto;
+    padding: 70px 0;
 }
 }
+/*
+        +++++++++++++++++++++++++++++++++++++++
+                768 < TABLETTE < 1023 PX
+        +++++++++++++++++++++++++++++++++++++++
+*/
 @media screen and (min-width: 768px) and (max-width: 1023px){
     .main-content{
         min-width: 768px;
         max-width: 1023px;
-        width: 100%;
-    }
-    .article-img{   
-        position: relative;
-        overflow: hidden;
+        width: 100%; 
+        /* padding-bottom: 100px;
+        margin-top: -70px;       */
+    }  
+    .logo-block{
         width: 40%;
-        height: 300px;
-        margin-bottom: 10px;      
+        padding: 40px 30px;
+    }  
+    .logo-block h1 a{
+        font-size: 3rem;
+    }    
+    .right-block{
+        margin: 15px 20px 20px 0;        
+    }  
+    .search-form input{
+        width: 40%;
+        font-size: 1.2rem;         
+    }
+    .search-form i, .power-off i, #burger i{
+        font-size: 1.5rem;
+    }
+    .log-container span{
+        font-size: 1.2rem;        
+    }
+    .log-container, .nav-container{
+        margin-right: 20px;
+    }   
+    .nav-container li{
+        font-size: 1.5rem;
     }
     .article-img img{
         position: absolute;
@@ -609,32 +694,56 @@ COMMENTEDITED
         clip: rect(50px, auto, auto, auto);
         top: -50px;
     }
+    .title-block{
+        top: -200px;        
+    }
+    .welcome-title{
+        font-size: 2.5rem;
+        padding: 0 40px;
+    }
+    .principal-title{
+        font-size: 3.5rem;       
+    }
+    .article-img{   
+        position: relative;
+        overflow: hidden;
+        width: 60%;
+        height: 300px;
+        margin-bottom: 10px;      
+    } 
+    .article-text{
+        font-size: 1.2rem;
+    }  
+    .article-text h3{
+        font-size: 2rem;
+    }
+    .title-signup{
+        margin-top: 70px;
+    }
+    .blog-title{
+        font-size: 3rem;
+        padding: 30px ;
+    }
+    .selected-title{
+        font-size: 2rem;
+    }
+    .color-content{  
+        width: 50%; 
+        margin: auto;     
+        padding: 50px 0;
+    }
 }
+/*
+        +++++++++++++++++++++++++++++++++++++++
+                1024 < ECRAN < 1199 PX
+        +++++++++++++++++++++++++++++++++++++++
+*/
 @media screen and (min-width: 1024px) and (max-width: 1199px){
     .main-content{
-        min-width: 768px;
-        max-width: 1023px;
+        min-width: 1024px;
+        max-width: 1199px;
         width: 100%;
-    }
-    .article-img{   
-        position: relative;
-        overflow: hidden;
-        width: 40%;
-        height: 300px;
-        margin-bottom: 10px;      
-    }
-    .article-img img{
-        position: absolute;
-        width: 100%;
-        clip: rect(50px, auto, auto, auto);
-        top: -50px;
-    }
-}
-@media screen and (min-width: 1200px) and (max-width: 1919px){
-    .main-content{
-        min-width: 1200px;
-        max-width: 1919px;
-        width: 100%;
+        /* padding-bottom: 100px; */
     }
     .logo-block{
         width: 20%;
@@ -643,7 +752,94 @@ COMMENTEDITED
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
-        width: 55%;
+        width: 80%;
+        padding-right: 30px;
+    }
+    .search-container{
+        width: 30%;
+    }
+    .search-form input{
+        width: 90%;
+    }
+    .log-container{
+        margin-right: 20px;
+        padding-top: 0;
+        padding-left: 120px;
+    }
+    .nav-container{
+        align-content: flex-start;
+    }
+    #burger{
+        display: none;
+    }
+    #list-menu{
+        display: flex;
+        justify-content: right;
+    }
+    #list-menu li{
+        padding : 20px;
+    }
+    .title-block{
+        top: -200px;        
+    }
+    .welcome-title{
+        font-size: 2.5rem;
+        padding: 0 40px;
+    }
+    .principal-title{
+        font-size: 3.5rem;       
+    }    
+    .article-img{   
+        position: relative;
+        overflow: hidden;
+        width: 60%;
+        height: 350px;
+        margin-bottom: 10px;      
+    }    
+    .article-img img{
+        position: absolute;
+        width: 100%;
+        clip: rect(50px, auto, auto, auto);
+        top: -50px;
+    }
+    .article-text{
+        font-size: 1.2rem;
+    }  
+    .article-text h3{
+        font-size: 2rem;
+    }  
+    .blog-title{
+        font-size: 3rem;
+        padding: 30px ;
+    }  
+    .selected-title{
+        font-size: 2rem;        
+    }
+    .color-content{ 
+        width: 50%; 
+        margin: auto;      
+        padding: 80px 0;
+    }
+}
+/*
+        +++++++++++++++++++++++++++++++++++++++
+                1200 < ECRAN < 1919 PX
+        +++++++++++++++++++++++++++++++++++++++
+*/
+@media screen and (min-width: 1200px) and (max-width: 1919px){
+    .main-content{
+        min-width: 1200px;
+        max-width: 1400px;
+        width: 100%;                                     
+    }
+    .logo-block{
+        width: 20%;
+    }
+    .right-block{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 70%;
         padding-right: 30px;
     }
     .search-container{
@@ -655,6 +851,7 @@ COMMENTEDITED
     .log-container{
         margin-right: 0;
         padding-top: 0;
+        padding-left: 120px;
     }
     .nav-container{
         align-content: flex-start;
@@ -670,57 +867,222 @@ COMMENTEDITED
         padding : 20px;
     }
     .principal-img{
-        margin-top: -650px;
+        margin-top: -450px;
+    }
+    .title-block{
+        top: -150px;
+    }
+    .principal-title{
+        font-size: 3rem;
+    }
+    .welcome-title{
+        font-size: 2.5rem;
     }
     .blog-title{
         margin: 50px 30px;
-        color: #2a4e62;
+        color: rgba(42, 78, 98, 1);
         text-align: left;
         font-size: 3rem;
         font-family: 'Believe-it';
-
+    }
+    .split-title{
+        font-size: 2rem;
+    }
+    .intro-container{
+        width: 80%;
+        margin: auto;
     }
     .articles-block{
-       flex-direction: row;
-      margin-left: 30px;
-       width: 80%;
+       flex-direction: row;  
+       align-items: flex-start; 
+       padding-top: 30px;   
     }
-    .article-img{   
-        position: relative;
-        overflow: hidden;
-        width: 40%;
-        height: 300px;
-        margin-bottom: 10px;      
+    .article-img{           
+        width: 40%;       
     }
-    .article-img img{
-        position: absolute;
-        width: 100%;
-        clip: rect(50px, auto, auto, auto);
-        top: -50px;
+    .article-img img{       
+        width: 100%;       
     }
     .article-text{
-        margin-left: 30px;
+        margin: -30px 0 30px 30px;               
+    }
+    .article-text h3{
+        font-size: 2rem;
         padding-top: 0;
     }
+    .article-text p{
+        font-size:1.2rem;
+    }
+    .link-article{
+        margin-left: 80%;       
+        border: 1px solid rgba(0, 28, 47, 1);
+        border-radius: 5px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+    .color-content{ 
+        width: 50%;
+        margin: auto;       
+        padding: 100px 0;
+    }
+    .form-signup{
+        width: 40%;
+    }
+    .comments-block{
+        width: 60%;
+        margin: auto;        
+    }
+    .comment-detail p{
+        font-size: 1.2rem;
+    }
+    .selected-art{
+        width: 80%;
+        margin: auto;    
+    }
+    .selected-title{
+        font-size: 2rem;
+        margin-left: 30px;
+    }
 }
-
+/*
+        +++++++++++++++++++++++++++++++++++++++
+                    ECRAN > 1920 PX
+        +++++++++++++++++++++++++++++++++++++++
+*/
 @media screen and (min-width: 1920px){
 
 .main-content{
-    min-width: 1200px;
-    width: 100%;
+    max-width: 1400px;
+    width: 100%;        
 }
-.article-img{   
-    position: relative;
-    overflow: hidden;
-    width: 40%;
-    height: 300px;
-    margin-bottom: 10px;      
+.logo-block{
+    width: 20%;
 }
-.article-img img{
-    position: absolute;
-    width: 100%;
-    clip: rect(50px, auto, auto, auto);
-    top: -50px;
+.right-block{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 70%;
+    padding-right: 30px;
+}
+.search-container{
+    width: 30%;
+}
+.search-form input{
+    width: 90%;
+}
+.log-container{
+    margin-right: 0;
+    padding-top: 0;
+    padding-left: 120px;
+}
+.nav-container{
+    align-content: flex-start;
+}
+#burger{
+    display: none;
+}
+#list-menu{
+    display: flex;
+    justify-content: right;
+}
+#list-menu li{
+    padding : 20px;
+}
+.principal-img{
+    margin-top: -450px;
+}
+.title-block{
+    top: -150px;
+}
+.principal-title{
+    font-size: 3rem;
+}
+.welcome-title{
+    font-size: 2.5rem;
+}
+.blog-title{
+    padding: 0 30px 30px;
+    color: rgba(42, 78, 98, 1);
+    text-align: left;
+    font-size: 3rem;
+    font-family: 'Believe-it';
+}
+.split-title{
+    font-size: 2.5rem;
+}
+.intro-container{
+    width: 80%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.articles-block{
+   flex-direction: row;  
+   align-items: flex-start; 
+   padding-top: 30px; 
+   margin-bottom: 40px;  
+}
+.article-img{           
+    width: 40%;       
+}
+.article-img img{       
+    width: 100%;       
+}
+.article-text{
+    margin: -30px 0 30px 30px;                   
+}
+.article-text h3{
+    font-size: 2rem;
+    padding-top: 0;
+}
+.article-text p{
+    font-size:1.2rem;
+}
+.link-article{
+    margin-left: 80%;
+    border: 1px solid rgba(0, 28, 47, 1);
+    border-radius: 5px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.color-content{ 
+    width: 50%;       
+    margin: auto;
+    padding: 200px 0;
+}
+.form-signup{
+    width: 50%;
+}
+.title-signup h2, .title-signup span{
+    font-size: 3rem;
+}
+.display-container .form-comment textarea{
+    border: 1px solid rgba(42, 78, 98, 1);
+}
+.display-container .form-comment textarea::placeholder{
+    color: rgba(0, 28, 47, 1);
+    font-size: 1.2rem;
+}
+.selected-art{
+    width: 80%;
+    margin: auto;    
+}
+.selected-art .article-img{
+    width: 50%;
+}
+.selected-title{
+    font-size: 2rem;
+    margin-left: 30px;
+}
+.comments-block{
+    width: 60%;
+    margin: auto;        
+}
+.comment-detail p{
+    font-size: 1.2rem;
 }
 }

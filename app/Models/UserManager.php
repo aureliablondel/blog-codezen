@@ -8,10 +8,10 @@ class UserManager extends Manager{
     // requête pour CREER l'ADMINISTRATEUR
     // ------------------------------------
 
-    public function createAdmin($firstname, $mdp){
+    public function createAdmin($pseudoAdmin, $passAdmin){
         $bdd = $this->dbConnect();
-        $user = $bdd->prepare('INSERT INTO users(firstname, mdp) VALUE (?,?)');
-        $user->execute(array($firstname, $mdp));
+        $user = $bdd->prepare('INSERT INTO admins(pseudo_admin, pass_admin) VALUE (?,?)');
+        $user->execute([$pseudoAdmin, $passAdmin]);
     }
 
     // --------------------------------------
@@ -24,18 +24,29 @@ class UserManager extends Manager{
     }
 
     // ----------------------------------------------------------------------------
-    // requête pour RECUPERER le mot de passe de l'utilisateur pour vérification
+    // requête pour RECUPERER le mot de passe de l'ADMINISTRATEUR pour vérification
+    // ----------------------------------------------------------------------------
+
+    public function recupPassAdmin($pseudoAdmin){
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('SELECT pseudo_admin, pass_admin FROM admins WHERE pseudo_admin = ?');
+        $req->execute([$pseudoAdmin]);
+        return $req;
+    }
+
+    // ----------------------------------------------------------------------------
+    // requête pour RECUPERER le mot de passe de l'UTILISATEUR pour vérification
     // ----------------------------------------------------------------------------
 
     public function recupPassword($pseudo){
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('SELECT user_id, pseudo, password FROM users WHERE pseudo = ?');
-        $req->execute(array($pseudo));
+        $req->execute([$pseudo]);
         return $req;
     }
 
     // --------------------------------------
-    //requête pour CHANGER le mot de passe
+    // requête pour CHANGER le mot de passe
     // --------------------------------------
 
     public function changePassword($idUser, $newPassword){
