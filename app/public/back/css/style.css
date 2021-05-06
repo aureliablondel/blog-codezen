@@ -1,14 +1,14 @@
 @font-face{
     font-family: Roboto-light;    
-    src: url(http://blog-codezen.test/app/public/front/fonts/roboto-light-webfont.woff);        
+    src: url(https://blog-codezen.herokuapp.com/app/public/front/fonts/roboto-light-webfont.woff);        
 }
 @font-face{
     font-family: Cupcake;
-    src: url(http://blog-codezen.test/app/public/front/fonts/cupcake_font-webfont.woff);
+    src: url(https://blog-codezen.herokuapp.com/app/public/front/fonts/cupcake_font-webfont.woff);
 }
 @font-face{
     font-family: Believe-it;
-    src: url(http://blog-codezen.test/app/public/front/fonts/believe_it-webfont.woff);    
+    src: url(https://blog-codezen.herokuapp.com/app/public/front/fonts/believe_it-webfont.woff);    
 }
 
 /*============= Reset =============*/
