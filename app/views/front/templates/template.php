@@ -28,7 +28,7 @@
             <!-- connexion et déconnexion -->
             <div class="log-container">                              
                 <a class="space-member" href="index.php?action=logIn" title="Se connecter à son espace"><span>Espace membre</span></a>
-                <a class="power-off" title="Déconnexion" href="index.php?action=disconnection" title="Se déconnecter"><i class="fas fa-power-off"></i></a>
+                <a class="power-off" href="index.php?action=disconnection" title="Se déconnecter"><i class="fas fa-power-off"></i></a>
             </div>
             <!-- menu -->
             <div class="nav-container">
