@@ -61,6 +61,7 @@
     <script src="app/public/front/js/burger.js"></script>
     <script src="app/public/front/js/passwordMask.js"></script>
     <script src="app/public/front/js/connectButton.js"></script>
+    <script src="app/public/front/js/displayForm.js"></script>
     <script src="app/public/front/js/alertRGPD.js"></script>
 </body>
 </html>
