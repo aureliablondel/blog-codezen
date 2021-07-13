@@ -12,7 +12,7 @@
     </div>
 </header>
     <!-- titre accueil -->
-<h2 class="welcome-title">Bonjour, je m'appelle Aurelia et je vous souhaite la bienvenue sur mon site.</h3>
+<h2 class="welcome-title">Bonjour, je m'appelle Aurelia et je vous souhaite la bienvenue sur mon site.</h2>
     
 <section class="intro-container">        
     <?php foreach($introArticles as $introArticle): ?>  
@@ -22,7 +22,7 @@
                 <img src="<?= $introArticle['img'] ?>" alt="<?= $introArticle['titleImg'] ?>">
             </div>
             <div class="article-text">
-                <h3><?= htmlspecialchars($introArticle['title']) ?></h3>
+                <h2><?= htmlspecialchars($introArticle['title']) ?></h2>
                 <p><?= htmlspecialchars($introArticle['content']) ?></p>
             </div>                          
         </article>    
@@ -41,7 +41,7 @@
             <img src="<?= $profilArticle['img'] ?>" alt="<?= $profilArticle['titleImg'] ?>">
         </div>
         <div class="article-text">
-            <h3><?= htmlspecialchars($profilArticle['title']) ?></h3>
+            <h2><?= htmlspecialchars($profilArticle['title']) ?></h2>
             <p><?= htmlspecialchars($profilArticle['content']) ?></p>
         </div>                                
     </article>              
@@ -60,7 +60,7 @@
                 <img src="<?= $lastArticle['img'] ?>" alt="<?= $lastArticle['titleImg'] ?>">                 
             </div>            
             <div class="article-text">
-                <h3><?= htmlspecialchars($lastArticle['title']) ?></h3>
+                <h2><?= htmlspecialchars($lastArticle['title']) ?></h2>
                 <p class="date-edit">Publié le <?= $lastArticle['dateEdit']; ?></p>
                 <p><?= htmlspecialchars($lastArticle['content']) ?></p>
             </div>                                     
